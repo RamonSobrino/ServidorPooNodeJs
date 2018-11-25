@@ -1,0 +1,82 @@
+[
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "address": "Second Avenue 25, Boston, Massachusets",
+    "description": "A superb collection of fine gifts and clothing to accent your stay in Mexico Beach.",
+    "name": "Beachwalk Beachwear & Giftware",
+    "telephone": "850-648-4200",
+    "url": "http://www.dishdash.com",
+    "openingHours": [
+      "Mo-Sa 11:00-14:30",
+      "Mo-Th 17:00-21:30",
+      "Fr-Sa 17:00-22:00"
+    ]
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "FoodEstablishment",
+    "address": "First Avenue 1, Springfield, Ohio",
+    "name": "Awesome Food",
+    "openingHours": [
+      "Mo-Sa 11:00-14:30",
+      "Mo-Th 17:00-21:30",
+      "Fr-Sa 17:00-22:00"
+    ],
+    "acceptsReservations": true,
+    "servesCuisine": [
+      "Continental"
+    ],
+    "telephone": "(408) 714-1489",
+    "url": "http://www.dishdash.com",
+    "description": "A good place to have a beer."
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "FoodEstablishment",
+    "address": "Last Avenue 5, Springfield, New York",
+    "name": "Bad Food",
+    "openingHours": [
+      "Mo-Sa 11:00-14:30",
+      "Mo-Th 17:00-21:30"
+    ],
+    "acceptsReservations": true,
+    "servesCuisine": [
+      "Oriental"
+    ],
+    "telephone": "(408) 714-1489",
+    "url": "http://www.dishdash.com",
+    "description": "A good turkish place."
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "address": "Principal Avenue 25, Toronto, Massachusets",
+    "description": "A superb collection of fine gifts for women.",
+    "name": "La tienduca de Ana",
+    "telephone": "850-648-4200",
+    "url": "http://www.tienduca-ana.com",
+    "openingHours": [
+      "Mo-Sa 11:00-14:30",
+      "Mo-Sa 17:00-21:30"
+    ]
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "FoodEstablishment",
+    "address": "Blue Avenue 1, Springfield, Ohio",
+    "name": "Kaisen Sushi",
+    "openingHours": [
+      "Mo-Sa 11:00-14:30",
+      "Mo-Th 17:00-21:30",
+      "Fr-Sa 17:00-22:00"
+    ],
+    "acceptsReservations": true,
+    "servesCuisine": [
+      "Japanese"
+    ],
+    "telephone": "(408) 714-1489",
+    "url": "http://www.kaisen.com",
+    "description": "The best sushi in town."
+  }
+]
