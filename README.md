@@ -1,7 +1,11 @@
 # ServidorPooNodeJs
 
-Servidor en Node Js que responde a varios tipos de peticiones
-##Tipos de entidades
+Servidor en Node Js que responde a varios tipos de peticiones en el puerto 3000
+
+## Arranque del servidor
+node servidor.js
+
+## Tipos de entidades
 Hay dos tipos de entidades:
 - LocalBusiness
 - FoodEstablishment
