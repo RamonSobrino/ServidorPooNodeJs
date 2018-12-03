@@ -27,7 +27,24 @@ function procesarGet(req, res){
 
             showTodos(req, res, "FoodEstablishment");
         } else {
-            res.end("Info de las entidades");
+            var respuesta = '<section> <h3> Info de entidades </h3>'
+            respuesta += '<p>Hay dos tipos de entidades: </p>'
+            respuesta += '<ul><li>LocalBusiness</li><li>FoodEstablishment</li></ul>'
+            respuesta += '<h3> Entidad LocalBusiness </h3>'
+            respuesta += '<table><thead><tr><th>Atributos</th><th>Descripcion</th><th>Tipo</th></tr></thead><tbody><tr><td>name</td>'
+            respuesta += '<td>Nombre del local</td><td>Texto</td></tr><tr><td>address</td><td>Direccion del local</td><td>Texto</td>'
+            respuesta += '</tr><tr><td>description</td><td>Descripcion del local</td><td>Texto</td></tr><tr><td>telephone</td><td>Telefono del local</td>'
+            respuesta += '<td>Texto</td></tr><tr><td>url</td><td>Url de la web del local</td><td>Texto</td></tr><tr><td>openingHours</td><td>Horas a las que esta abierto el local</td>'
+            respuesta += '<td>Array de Textos</td></tr></tbody></table>'
+            respuesta += '<h3> Entidad FoodEstablishment </h3>'
+            respuesta += '<table><thead><tr><th>Atributos</th><th>Descripcion</th><th>Tipo</th></tr></thead><tbody><tr><td>name</td><td>Nombre del local</td>'
+            respuesta += '<td>Texto</td></tr><tr><td>address</td><td>Direccion del local</td><td>Texto</td></tr><tr><td>description</td><td>Descripcion del local</td>'
+            respuesta += '<td>Texto</td></tr><tr><td>telephone</td><td>Telefono del local</td><td>Texto</td></tr><tr><td>url</td><td>Url de la web del local</td>'
+            respuesta += '<td>Texto</td></tr><tr><td>openingHours</td><td>Horas a las que esta abierto el local</td><td>Array de Textos</td></tr><tr>'
+            respuesta += '<td>acceptsReservations</td><td>Si acepta reservas</td><td>Booleano</td></tr><tr><td>servesCuisine</td><td>Tipos de cocina que sirve</td>'
+            respuesta += '<td>Array de Textos</td></tr></tbody></table>'
+            respuesta += '</section>'
+            res.end(respuesta);
         }
     } else if (path.length == 3) {
             console.log("Entrando en If de ids");

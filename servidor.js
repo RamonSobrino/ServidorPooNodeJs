@@ -3,6 +3,8 @@ const procesarPost = require('./procesarPost.js');
 const procesarDelete = require('./procesarDelete.js');
 const procesarPut = require('./procesarPut.js');
 const http = require('http');
+const url = require('url');
+
 
 
 
@@ -17,6 +19,10 @@ http.createServer(procesarRequest).listen(3000);
 let path;
 
 function procesarRequest(req, res) {
+    res.setHeader ('Access-Control-Allow-Origin', '*');
+    res.setHeader ('Access-Control-Allow-Credentials', true);
+    res.setHeader ('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+    res.setHeader ('Access-Control-Allow-Headers', 'Content-Type');
     switch (req.method) {
         case 'POST':
             procesarPost(req, res);
@@ -29,6 +35,9 @@ function procesarRequest(req, res) {
             break;
         case 'PUT':
             procesarPut(req, res);
+            break;
+        case 'OPTIONS':
+            res.end();
             break;
         default:
             console.log("Método no soportado" + req.method);

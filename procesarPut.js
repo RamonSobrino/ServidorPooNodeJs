@@ -1,6 +1,7 @@
 
 const url = require('url');
 const datos = require('./datos.js')
+const qs = require('querystring');
 
 
 function procesarPut(req, res) {
@@ -19,19 +20,29 @@ function procesarPut(req, res) {
 
 function deleteId(req, resp, id, type) {
     resp.setHeader('content-type', 'text/html');
-    console.log("Actualizando elemento de tipo "+type+" y de id "+id);
+    console.log("Actualizando elemento de tipo " + type + " y de id " + id);
     let actualizado;
-    let query =  url.parse(req.url, true).query;
-
-    datos.forEach((element, i) => {
-        if (id == element.id && type == element['@type']){
-            element.actualizar(query);
-            actualizado = element;
-        }
+    let body = '';
+    req.on('data', data => {
+        body += data;
+        if (body.length > 1e6) req.connection.destroy();
     });
-    
+    req.on('end', () => {
+        let contenido = qs.parse(body);
+        let query = JSON.parse(Object.keys(contenido)[0]);
 
-    resp.end(actualizado.toHTML());
+        datos.forEach((element, i) => {
+            if (id == element.id && type == element['@type']) {
+                element.actualizar(query);
+                actualizado = element;
+                resp.end(actualizado.toHTML());
+            }
+        });
+
+        resp.end('Food Establishment no encontrado');
+
+    });
+
 
 
 };

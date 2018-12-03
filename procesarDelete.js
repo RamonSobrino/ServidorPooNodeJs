@@ -25,11 +25,13 @@ function deleteId(req, resp, id, type) {
         if (id == element.id && type == element['@type']){
             datos.splice(i,1);
             borrado = element;
+            resp.end('Entidad borrada');
+
         }
     });
     console.log(borrado);
 
-    resp.end(borrado.toHTML());
+    resp.end('Elemento no encontrado');
 
 
 };
