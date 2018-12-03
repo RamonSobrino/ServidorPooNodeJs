@@ -19,7 +19,6 @@ function procesarPut(req, res) {
 
 
 function deleteId(req, resp, id, type) {
-    resp.setHeader('content-type', 'text/html');
     console.log("Actualizando elemento de tipo " + type + " y de id " + id);
     let actualizado;
     let body = '';
@@ -35,12 +34,26 @@ function deleteId(req, resp, id, type) {
             if (id == element.id && type == element['@type']) {
                 element.actualizar(query);
                 actualizado = element;
-                resp.end(actualizado.toHTML());
+                resp.writeHead(200, {
+                    'Content-Type': 'text/plain',
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Credentials': true,
+                    'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Content-Type'
+                  });
+                resp.end('Entidad actualizada');
             }
         });
-
-        resp.end('Food Establishment no encontrado');
-
+        if (actualizado == undefined) {
+            resp.writeHead(404, {
+                'Content-Type': 'text/plain',
+                'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type'
+            });
+            resp.end('Food Establishment no encontrado');
+        }
     });
 
 

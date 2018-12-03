@@ -57,9 +57,15 @@ function procesarGet(req, res){
 function showTodos(req, resp, type) {
     const negotiator = new Negotiator(req);
     const mediaType = negotiator.mediaType(tiposDisponibles);
+    resp.writeHead(200, {
+        'Content-Type': mediaType,
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      });
     switch (mediaType) {
         case 'application/xml':
-            resp.setHeader('content-type', mediaType);
             console.log("XML...")
             respuesta = '';
             datos.forEach((element, i) => {
@@ -71,7 +77,6 @@ function showTodos(req, resp, type) {
             resp.end();
             break;
         case 'application/json':
-            resp.setHeader('content-type', mediaType);
             console.log("JSON...")
             respuesta = '';
             datos.forEach((element, i) => {
@@ -83,7 +88,6 @@ function showTodos(req, resp, type) {
             resp.end();
             break;
         case 'text/html':
-            resp.setHeader('content-type', mediaType);
             respuesta = '';
             datos.forEach((element, i) => {
                 if (type == element['@type'])
@@ -94,7 +98,6 @@ function showTodos(req, resp, type) {
             resp.end();
             break;
         default:
-            resp.setHeader('content-type', 'text/html');
             respuesta = '';
             datos.forEach((element, i) => {
                 if (type == element['@type'])
@@ -109,9 +112,15 @@ function showTodos(req, resp, type) {
 function showId(req, resp, id, type) {
     const negotiator = new Negotiator(req);
     const mediaType = negotiator.mediaType(tiposDisponibles);
+    resp.writeHead(200, {
+        'Content-Type': mediaType,
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      });
     switch (mediaType) {
         case 'application/xml':
-            resp.setHeader('content-type', mediaType);
             console.log("XML...")
             respuesta = '';
             datos.forEach((element, i) => {
@@ -123,7 +132,6 @@ function showId(req, resp, id, type) {
             resp.end();
             break;
         case 'application/json':
-            resp.setHeader('content-type', mediaType);
             console.log("JSON...")
             respuesta = '';
             datos.forEach((element, i) => {
@@ -135,7 +143,6 @@ function showId(req, resp, id, type) {
             resp.end();
             break;
         case 'text/html':
-            resp.setHeader('content-type', mediaType);
             respuesta = '';
             datos.forEach((element, i) => {
                 if (id == element.id && type == element['@type'])
@@ -146,7 +153,6 @@ function showId(req, resp, id, type) {
             resp.end();
             break;
         default:
-            resp.setHeader('content-type', 'text/html');
             respuesta = '';
             datos.forEach((element, i) => {
                 if (id == element.id && type == element['@type'])

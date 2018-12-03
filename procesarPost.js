@@ -40,14 +40,35 @@ function procesarPost(req, res) {
                 datos.push(nuevo);
             } else {
                 console.log("Entrando en Error Entidad no conocida");
+                res.writeHead(404, {
+                    'Content-Type': 'text/plain',
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Credentials': true,
+                    'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Content-Type'
+                  });
                 res.end("Error Entidad no conocida");
             }
         } else {
 
             console.log("Entrando en Error Secuencia no conocida");
+            res.writeHead(404, {
+                'Content-Type': 'text/plain',
+                'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type'
+              });
             res.end("Error Secuencia no conocida");
 
         }
+        res.writeHead(200, {
+            'Content-Type': 'text/plain',
+            'Access-Control-Allow-Origin':'*',
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
+          });
         res.end("El nuevo objeto ha sido añadido");
     });
 
